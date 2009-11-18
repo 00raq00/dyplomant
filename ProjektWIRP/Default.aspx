@@ -6,9 +6,33 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     Strona G堯wna
     <br />
-    <a href="zgloszenie.aspx">Zg這szenie</a><br />
-    <a href="prace_wysylowe.aspx">Administacja</a><br />
-    <a href="wprowadzenieRecenzji.aspx">Wprowadzenie recenzji</a><br />
+    <asp:LoginView ID="LoginView2" runat="server">
+        <RoleGroups>
+            <asp:RoleGroup Roles="admin">
+                <ContentTemplate>
+                    <a href="zgloszenie.aspx">Zg這szenie</a><br />
+                    <a href="prace_wysylowe.aspx">Administacja</a><br />
+                    <a href="WylistowanieNiewypelnionychZgloszen.aspx">Przejrzyj niepoprawne</a>&nbsp;
+                </ContentTemplate>
+            </asp:RoleGroup>
+            <asp:RoleGroup Roles="00raq00">
+                <ContentTemplate>
+                    <a href="zgloszenie.aspx">Zg這szenie</a><br />
+                    &nbsp;
+                </ContentTemplate>
+            </asp:RoleGroup>
+            <asp:RoleGroup Roles="recenzent">
+                <ContentTemplate>
+                    <a href="wprowadzenieRecenzji.aspx">Wprowadzenie recenzji</a>
+                </ContentTemplate>
+            </asp:RoleGroup>
+        </RoleGroups>
+        <LoggedInTemplate>
+            <a href="zgloszenie.aspx">Zg這szenie</a>
+        </LoggedInTemplate>
+    </asp:LoginView>
+    <br />
+    <br />
 &nbsp;<br />
 </asp:Content>
 
